@@ -8,32 +8,38 @@ good idea on how it should work.
 ## Usage
 
 ```
-changed-tests --help
+changed-tests 0.1.0
+Magnus Bergmark <magnus.bergmark@gmail.com>
 
-USAGE: changed-tests [OPTIONS] [TYPE]
 
-TYPES:
-  - rspec (default)
-    Look for RSpec changes and only show files that can be given to the `rspec`
-    command.
+USAGE:
+    changed-tests [FLAGS] [OPTIONS] [TYPE]
+
+FLAGS:
+    -e, --execute
+            Run tests instead of just listing them.
+
+    -h, --help
+            Prints help information
+
+    -l, --list
+            Only list tests to STDOUT.
+
+    -V, --version
+            Prints version information
+
+    -w, --whole-files
+            Always run the whole test files instead of trying to extract subsets of them (where supported).
+
 
 OPTIONS:
-  -e, --execute
-      Run tests instead of just listing them.
+    -b, --branch <BRANCH>
+            Diff against given branch name instead of HEAD commit. Can be specified without a value to diff against
+            upstream master. [default: origin/master]
 
-  -l, --list
-      Only list tests to STDOUT.
-
-  -b [BRANCH], --branch=[BRANCH]
-      Diff against given branch name instead of HEAD commit. Defaults to
-      `origin/master` when not specified.
-
-  -w, --whole-files
-      Always run the whole test files instead of trying to extract subsets of
-      them (where supported).
-
-  -v, --verbose
-      Print test command to STDOUT before executing.
+ARGS:
+    <TYPE>
+            The type of tests to search for. This option is case insensitive. [default: RSpec]  [possible values: RSpec]
 ```
 
 ## RSpec support

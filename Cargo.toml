@@ -4,3 +4,6 @@ version = "0.1.0"
 authors = ["Magnus Bergmark <magnus.bergmark@gmail.com>"]
 
 [dependencies]
+clap = "2.31.2"
+git2 = "0.7.0"
+failure = "0.1.1"
