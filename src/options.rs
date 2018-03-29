@@ -30,10 +30,10 @@ impl Default for Action {
 
 #[derive(Debug, PartialEq)]
 pub struct Options {
-    tests_type: Type,
-    action: Action,
-    branch_name: Option<String>,
-    whole_files: bool,
+    pub tests_type: Type,
+    pub action: Action,
+    pub branch_name: Option<String>,
+    pub whole_files: bool,
 }
 
 impl Default for Options {

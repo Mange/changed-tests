@@ -3,9 +3,14 @@ extern crate clap;
 #[macro_use]
 extern crate failure;
 
+extern crate git2;
+
 use failure::Error;
 
+mod diff;
 mod options;
+mod types;
+
 use options::*;
 
 fn main() {
@@ -20,6 +25,10 @@ fn main() {
 
 fn run() -> Result<(), Error> {
     let options = Options::from_args()?;
+    let repo = git2::Repository::open_from_env()?;
+
     println!("{:#?}", options);
-    Ok(())
+    match options.tests_type {
+        Type::RSpec => types::rspec(options, &repo),
+    }
 }
